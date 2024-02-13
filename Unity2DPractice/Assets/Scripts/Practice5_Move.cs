@@ -6,7 +6,7 @@ public class Practice5_Move : MonoBehaviour
 {
     //1
     Rigidbody2D rb2d;
-    public bool goRight, goLeft, goUp, goForce;
+    public bool goRight, goLeft, goUp, goForce, connect;
 
     // Start is called before the first frame update
     void Start()
@@ -41,16 +41,20 @@ public class Practice5_Move : MonoBehaviour
 
         if (goRight)
         {
-            rb2d.velocity = new Vector2(2, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(3, rb2d.velocity.y);
         }
 
         if (goLeft)
         {
-            rb2d.velocity = new Vector2(-2, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(-3, rb2d.velocity.y);
         }
 
+
+        //connect = transform.parent != null ? true : false;
+        connect = transform.parent is not null ? true : false;
+
         //5
-        if (goForce)
+        if (goForce && !connect)
         {
             transform.Rotate(0, 0, 5);
         }
@@ -66,11 +70,11 @@ public class Practice5_Move : MonoBehaviour
             //                transform.position.z);
 
             //velocity
-            rb2d.velocity = new Vector2(rb2d.velocity.x, 2);
+            rb2d.velocity = new Vector2(rb2d.velocity.x, 4);
         }
 
 
-        
+
         //if (transform.parent!=null)
         //{
         //    var pos = transform.localPosition;
@@ -84,5 +88,5 @@ public class Practice5_Move : MonoBehaviour
         //transform.localPosition = new Vector3( mousePos.x,mousePos.y,0);
     }
 
-    
+
 }

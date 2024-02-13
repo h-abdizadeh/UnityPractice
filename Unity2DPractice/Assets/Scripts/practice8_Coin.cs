@@ -1,23 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
-public class tempCode : MonoBehaviour
+public class practice8_Coin : MonoBehaviour
 {
-
-    tempPlayer player;
+    practice8_Player player;
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<tempPlayer>();
+        player = FindObjectOfType<practice8_Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
         /*gameObject.*/
-        transform.Rotate(0.5f * Vector3.up);
+        transform.Rotate(0.5f * Vector3.up);//left,right,down
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,4 +27,13 @@ public class tempCode : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(transform.tag is "LastCoin" && 
+            collision.transform.tag is "Player")
+        {
+            player.score += 1;
+            Destroy(gameObject);
+        }
+    }
 }
