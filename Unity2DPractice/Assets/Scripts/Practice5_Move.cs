@@ -8,11 +8,18 @@ public class Practice5_Move : MonoBehaviour
     Rigidbody2D rb2d;
     public bool goRight, goLeft, goUp, goForce, connect;
 
+    //practice9
+    //on collision enemy
+    public bool move;
+
     // Start is called before the first frame update
     void Start()
     {
         //2
         rb2d = GetComponent<Rigidbody2D>();
+
+        //practice9
+        move = true;
     }
 
     // Update is called once per frame
@@ -39,39 +46,42 @@ public class Practice5_Move : MonoBehaviour
         goForce = Input.GetKey(KeyCode.M);
         goUp = Input.GetKey(KeyCode.Space);
 
-        if (goRight)
+        
+        if (move/*practice9*/)
         {
-            rb2d.velocity = new Vector2(3, rb2d.velocity.y);
+            if (goRight)
+            {
+                rb2d.velocity = new Vector2(3, rb2d.velocity.y);
+            }
+            if (goLeft)
+            {
+                rb2d.velocity = new Vector2(-3, rb2d.velocity.y);
+            }
+
+            //connect = transform.parent != null ? true : false;
+            connect = transform.parent is not null ? true : false;
+            //5
+            if (goForce && !connect)
+            {
+                transform.Rotate(0, 0, 5);
+            }
+
+            //6
+            if (goUp)
+            {
+                //position
+                //gameObject.transform.position =
+                //    new Vector3(transform.position.x,
+                //                transform.position.y + 10 * Time.deltaTime,
+                //                transform.position.z);
+
+                //velocity
+                rb2d.velocity = new Vector2(rb2d.velocity.x, 4);
+            }
         }
 
-        if (goLeft)
-        {
-            rb2d.velocity = new Vector2(-3, rb2d.velocity.y);
-        }
 
-
-        //connect = transform.parent != null ? true : false;
-        connect = transform.parent is not null ? true : false;
-
-        //5
-        if (goForce && !connect)
-        {
-            transform.Rotate(0, 0, 5);
-        }
-
-
-        //6
-        if (goUp)
-        {
-            //position
-            //gameObject.transform.position =
-            //    new Vector3(transform.position.x,
-            //                transform.position.y + 10 * Time.deltaTime,
-            //                transform.position.z);
-
-            //velocity
-            rb2d.velocity = new Vector2(rb2d.velocity.x, 4);
-        }
+       
 
 
 
