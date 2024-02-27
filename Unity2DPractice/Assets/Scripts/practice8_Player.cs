@@ -6,6 +6,7 @@ public class practice8_Player : MonoBehaviour
 {
     public int score;
 
+    public GameObject scoreText;
     // Start is called before the first frame update
     void Start()
     {
