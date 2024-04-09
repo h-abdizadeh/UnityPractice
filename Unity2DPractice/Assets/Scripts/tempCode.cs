@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
 
@@ -29,4 +30,41 @@ public class tempCode : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.ToLower() is "player")
+        {
+            //1
+            //Destroy(collision.gameObject);
+
+            //2
+            //Transform player = collision.gameObject.transform;
+            //player.position = Vector3.zero;
+
+            //3
+            float enemyPosX = gameObject.transform.position.x;
+            Vector3 playerPos = collision.gameObject.transform.position;
+            Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
+
+            if (playerPos.x < enemyPosX)
+            {
+                playerRb.velocity = new Vector2(-5, playerRb.velocity.y);
+            }
+            else
+            {
+                playerRb.velocity = new Vector2(5, playerRb.velocity.y);
+            }
+        }
+
+
+       
+    }
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //        if(collision.gameObject.tag.ToUpper() is "PLAYER")
+    //    {
+    //        playerMove.move = true;
+    //    }
+    //}
 }

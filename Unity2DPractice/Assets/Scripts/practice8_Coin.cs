@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class practice8_Coin : MonoBehaviour
@@ -23,16 +24,30 @@ public class practice8_Coin : MonoBehaviour
         if (collision.gameObject.tag is "Player")
         {
             player.score += 1;
+            if (player.scoreText != null)
+            {
+                //add 'using TMPro' top page for 'TMP_Text';
+                player.scoreText.GetComponent<TMP_Text>().text = "score : " + player.score;
+            }
+                
+
             Destroy(gameObject);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(transform.tag is "LastCoin" && 
+        if (transform.tag is "LastCoin" &&
             collision.transform.tag is "Player")
         {
             player.score += 1;
+            if (player.scoreText != null)
+            {
+                //add 'using TMPro' top page for 'TMP_Text';
+                player.scoreText.GetComponent<TMP_Text>().text = $"score : {player.score}";
+            }
+                
+
             Destroy(gameObject);
         }
     }

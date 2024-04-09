@@ -5,6 +5,7 @@ using UnityEngine;
 public class tempPlayer : MonoBehaviour
 {
     public int score;
+    public Object bullet;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,11 @@ public class tempPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            Instantiate(bullet,transform.position,transform.rotation);
+            
+            //FindObjectOfType<Practice9_Bullet>().fire = true;
+        }
     }
 }
