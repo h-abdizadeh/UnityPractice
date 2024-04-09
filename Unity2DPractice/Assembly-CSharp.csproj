@@ -56,9 +56,12 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\MiniGame2_Score.cs" />
     <Compile Include="Assets\Scripts\Practice6_VerticalPlatform.cs" />
     <Compile Include="Assets\Scripts\tempCode.cs" />
     <Compile Include="Assets\Scripts\Practice5_Move.cs" />
+    <Compile Include="Assets\Scripts\Practice9_Bullet.cs" />
+    <Compile Include="Assets\Scripts\tempBullet.cs" />
     <Compile Include="Assets\Scripts\tempPlayer.cs" />
     <Compile Include="Assets\Scripts\practice9_Enemy.cs" />
     <Compile Include="Assets\Scripts\MiniGame1.cs" />
@@ -66,8 +69,8 @@
     <Compile Include="Assets\Scripts\Practice6_HorizontalPlatform.cs" />
     <Compile Include="Assets\Scripts\practice8_Coin.cs" />
     <Compile Include="Assets\Scripts\Practice4_RotateFan.cs" />
+    <Compile Include="Assets\Scripts\MiniGame2_Player.cs" />
     <Compile Include="Assets\Scripts\Practice4_Move.cs" />
-    <Compile Include="Assets\Scripts\practice9_Bullet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
