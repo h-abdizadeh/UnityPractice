@@ -1,25 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Input;//static
 
 public class tempPlayer : MonoBehaviour
 {
-    public int score;
-    public Object bullet;
+    Rigidbody2D rb2d;
+    Animator animator;
+
+    bool goRight, goLeft, jump, climb;
     // Start is called before the first frame update
     void Start()
     {
-        score = 0;
+        rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.E))
+        goRight = /*Input.*/GetKey(KeyCode.D);
+
+        if (goRight)
         {
-            Instantiate(bullet,transform.position,transform.rotation);
-            
-            //FindObjectOfType<Practice9_Bullet>().fire = true;
+            rb2d.velocity = new Vector2(1, rb2d.velocity.y);
+            animator.SetBool("walk", true);
+        }
+        else
+        {
+            animator.SetBool("walk", false);
         }
     }
 }

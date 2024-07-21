@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class tempCode : MonoBehaviour
@@ -25,7 +21,7 @@ public class tempCode : MonoBehaviour
     {
         if (collision.gameObject.tag is "Player")
         {
-            player.score += 1;
+            //player.score += 1;
             Destroy(gameObject);
         }
     }
