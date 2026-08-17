@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.UIElements;
+using UnityEngine;
+
+public class FirstCode : MonoBehaviour
+{
+    //2
+    Rigidbody2D rb;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //1
+        //transform.position = new Vector3(0, 4, 0);
+
+        //2
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //1
+        //var p = transform.position;
+        //transform.position =
+        //    new Vector3(p.x + 0.01f, p.y + 0.01f, p.z);
+        //transform.Rotate(0, 0, 10);
+
+        //2
+        var right = Input.GetKey(KeyCode.D);
+        var left = Input.GetKey(KeyCode.A);
+
+        var v = rb.velocity;
+
+        if (right)
+        {
+            rb.velocity = new Vector2(1,v.y);
+        }
+        if (left)
+        {
+            rb.velocity = new Vector2(-1,v.y);
+        }
+    }
+}
